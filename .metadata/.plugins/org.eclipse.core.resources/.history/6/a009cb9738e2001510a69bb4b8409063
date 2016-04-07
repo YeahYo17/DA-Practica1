@@ -1,0 +1,39 @@
+
+public class Selectkesimo {
+	
+	public static int selectKesimo(int[] v, int m){
+		int max = v.length-1;
+		
+		return selectKesimo(v, 0, max, m);
+	}
+	
+	private static int selectKesimo(int[] v, int first, int last, int k){
+		
+		if(last <= first){
+			return v[first];
+		}
+		
+		int p = sort(v,first,last);
+		int k1 = p - first + 1;
+		
+		if(k <= k1)
+			return selectKesimo(v,first,p,k);
+		else
+			return selectKesimo(v,p+1,last,k-k1);
+	}
+	
+	private static int sort(int[] v, int first, int last){
+		
+		int p=v[first]; int i = first-1; int j = last+1;
+		while (true){
+			do{i++;}while (v[i]<p);
+			do{j--;}while (v[j]>p);
+			if(i<j){
+				int aux=v[i]; v[i]=v[j]; v[j]=aux;
+			}else{
+				return j;
+			}
+		}
+	}
+
+}

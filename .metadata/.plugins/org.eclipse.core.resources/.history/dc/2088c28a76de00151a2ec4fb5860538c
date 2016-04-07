@@ -1,0 +1,104 @@
+import java.util.*;
+
+public class Mergesort {
+
+	public static void main(String[] args){
+		
+		Random rnd = new Random();
+		int num;
+		int max = 100;
+		long start, end;
+
+		
+		int[] a = new int[max];
+		for(int i=0; i < max; i++){
+			num = (int)(rnd.nextDouble() * 1000000);
+			a[i] = num;
+		}
+		/*
+		System.out.println();
+		System.out.println("================================");
+		System.out.println(" 1.Array (a):");
+		for(int i=0; i < a.length; i++){
+			System.out.println(a[i]);
+		}*/
+		
+		start = System.currentTimeMillis();
+		mergeSort(a);
+		end = System.currentTimeMillis()*100;
+
+		System.out.println();
+		System.out.println("================================");
+		System.out.println(" 2.Array (a):");
+		for(int i=0; i < a.length; i++){
+			System.out.println(a[i]);
+		}
+		
+		System.out.println();
+		System.out.println("================================");
+		System.out.println("        TIEMPO -- " + ( end - start ) + " ms");
+		System.out.println("================================");
+
+		/*
+		int[] a = {2, 6, 3, 5, 1};
+
+		mergeSort(a);
+		
+		System.out.println(" Array (a):");
+		for(int i=0; i < a.length; i++){
+			System.out.println(a[i]);
+		}
+		*/
+	}
+
+	public static void mergeSort(int[ ] a){
+		int[] tmp = new int[a.length];
+		mergeSort(a, tmp,  0,  a.length - 1);
+	}
+
+
+	private static void mergeSort(int[ ] a, int[ ] tmp, int left, int right){
+		if( left < right ){
+			int center = (left + right) / 2;
+			mergeSort(a, tmp, left, center);
+			mergeSort(a, tmp, center + 1, right);
+			merge(a, tmp, left, center, right);
+		}
+	}
+
+
+    private static void merge(int[ ] a, int[ ] tmp, int first, int center, int last ){
+    	int right = center+1;
+        int k = first;
+        int len = last - first + 1;
+
+        while( first <= center && right <= last){
+            if(a[first] <= a[right]){
+                tmp[k] = a[first];
+                first++;
+            }else{
+                tmp[k] = a[right];
+                right++;
+            }
+            k++;
+        }
+        
+        while(first <= center){    // Copy rest of first half
+            tmp[k] = a[first];
+            k++; first++;
+        }
+        
+        while(right <= last){  // Copy rest of right half
+            tmp[k] = a[right];
+        	k++; right++;
+        }
+        
+        // Copy tmp back
+        for(int i = 0; i < len; i++, last--)
+            a[last] = tmp[last];
+        
+        center = right;
+
+    }
+	
+}
