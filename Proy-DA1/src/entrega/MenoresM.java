@@ -17,7 +17,7 @@ public class MenoresM {
 		Tambien será donde se guarden los archivos de salida.
 	  
 	 **/
-	private static String ruta = "C:\\Users\\Kevin\\Dropbox\\Uni\\4º Año\\DA\\Practicas\\Practica 1\\Proyectos Eclipse\\Proy-DA1\\src\\";
+	private static String ruta = "C:\\Users\\Kevin\\Dropbox\\Uni\\4º Año\\DA\\Practicas\\Practica 1\\Proyectos Eclipse\\GitHub\\Proy-DA1\\src\\";
 
 	/**
 	 * Lee el fichero asociado al caso de prueba y devuelve en un vector su contenido,

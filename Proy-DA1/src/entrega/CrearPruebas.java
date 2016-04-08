@@ -20,7 +20,7 @@ public class CrearPruebas {
 	
 	public static void main(String[] args) throws IOException{
 		
-		String ruta = "C:\\Users\\Kevin\\Dropbox\\Uni\\4º Año\\DA\\Practicas\\Practica 1\\Proyectos Eclipse\\Proy-DA1\\src\\";
+		String ruta = "C:\\Users\\Kevin\\Dropbox\\Uni\\4º Año\\DA\\Practicas\\Practica 1\\Proyectos Eclipse\\GitHub\\Proy-DA1\\src\\";
 		int[] v;
 		int max = 1000000;
 		
